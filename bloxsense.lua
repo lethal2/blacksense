@@ -5630,7 +5630,7 @@ do
 	UILibrary:CreateDropdown({Name = "Yaw", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Forward", "Backward", "Spin", "Glitch Spin", "Stutter Spin"}, Tooltip = "Overrides your server yaw view angle."})
 	UILibrary:CreateDropdown({Name = "Yaw Jitter", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Random", "Offset", "Center"}, Tooltip = "Adds a jitter angle to the yaw."})
 	UILibrary:CreateDropdown({Name = "Freestanding", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Default"}, Tooltip = "Hides your head behind cover where possible, requires Yaw."})
-	--UILibrary:CreateDropdown({Name = "Fake angle", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Default", "Random", "Opposite", "Spin", "Jitter"}})
+	UILibrary:CreateDropdown({Name = "Fake angle", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Default", "Random", "Opposite", "Spin", "Jitter"}})
 	UILibrary:CreateSlider({Name = "Yaw angle", Tab = "Rage", Section = "Anti Aim", Suffix = "°", MinimumNumber = -180, MaximumNumber = 180, Tooltip = "Fine tunes yaw angle."})
 	UILibrary:CreateSlider({Name = "Yaw Jitter angle", Tab = "Rage", Section = "Anti Aim", Suffix = "°", MinimumNumber = -180, MaximumNumber = 180, Tooltip = "Fine tunes yaw jitter angle."})
 	UILibrary:CreateButton({Name = "Hide in Floor", Tab = "Rage", Section = "Anti Aim", Tooltip = "Lowers your body to be inside the floor."})
@@ -5853,8 +5853,8 @@ do
 	UILibrary:CreateTextBox({Name = "Kill Say Message", Tab = "Misc", Section = "Extra", Default = "sit nn dog"})
 	UILibrary:CreateButton({Name = "Remove Bullet Holes", Tab = "Misc", Section = "Extra"})
 	UILibrary:CreateButton({Name = "Remove Hit Effects", Tab = "Misc", Section = "Extra"})
-	--UILibrary:CreateButton({Name = "Remove Kill Bricks", Tab = "Misc", Section = "Extra"})
-	--UILibrary:CreateButton({Name = "Auto Martyrdom", Tab = "Misc", Section = "Extra"})
+	UILibrary:CreateButton({Name = "Remove Kill Bricks", Tab = "Misc", Section = "Extra"})
+	UILibrary:CreateButton({Name = "Auto Martyrdom", Tab = "Misc", Section = "Extra"})
 	UILibrary:CreateTap({Name = "Join A New Game", Tab = "Misc", Section = "Extra", Confirmation = true})
 
 	UILibrary:CreateButton({Name = "Unlock Inventory", Tab = "Misc", Section = "Exploits"})
@@ -5862,10 +5862,10 @@ do
 	UILibrary:CreateButton({Name = "Ping Spoofer", Tab = "Misc", Section = "Exploits"})
 	UILibrary:CreateSlider({Name = "Minimum Ping", Tab = "Misc", Section = "Exploits", MinimumNumber = 1, MaximumNumber = 1500, DefaultValue = 60, Suffix = "ms"})
 	UILibrary:CreateSlider({Name = "Maximum Ping", Tab = "Misc", Section = "Exploits", MinimumNumber = 1, MaximumNumber = 1500, DefaultValue = 250, Suffix = "ms"})
-	--UILibrary:CreateButton({Name = "Replicate Skins", Tab = "Misc", Section = "Exploits"})
-	--UILibrary:CreateButton({Name = "Block Weapon Dropping On Death", Tab = "Misc", Section = "Exploits"})
-	--UILibrary:CreateTap({Name = "Crash Server", Tab = "Misc", Section = "Exploits", Confirmation = true})
-	--[[UILibrary:CreateDropdown({Name = "Player in Focus", Tab = "Misc", Section = "Exploits", Values = {}})
+	UILibrary:CreateButton({Name = "Replicate Skins", Tab = "Misc", Section = "Exploits"})
+	UILibrary:CreateButton({Name = "Block Weapon Dropping On Death", Tab = "Misc", Section = "Exploits"})
+	UILibrary:CreateTap({Name = "Crash Server", Tab = "Misc", Section = "Exploits", Confirmation = true})
+	UILibrary:CreateDropdown({Name = "Player in Focus", Tab = "Misc", Section = "Exploits", Values = {}})
 	local function getnames()
 		local tbl = {}
 		
@@ -8821,13 +8821,13 @@ do --ANCHOR Visuals
 		else
 			lighting.ClockTime = 9
 		end
-		if Menu["Visuals"]["World"]["Custom Saturation"]["Toggle"]["Enabled"] then -- this colorcorrection effect doesnt get removed ever
-			camera.ColorCorrection.TintColor = Menu["Visuals"]["World"]["Custom Saturation"]["Color 1"]["Color"]
+		--[[if Menu["Visuals"]["World"]["Custom Saturation"]["Toggle"]["Enabled"] then -- this colorcorrection effect doesnt get removed ever
+		-	camera.ColorCorrection.TintColor = Menu["Visuals"]["World"]["Custom Saturation"]["Color 1"]["Color"]
 			camera.ColorCorrection.Saturation = Menu["Visuals"]["World"]["Saturation Density"]["Value"] / 100
 		else
 			camera.ColorCorrection.Saturation = 0
 			camera.ColorCorrection.TintColor = Color3.new(1, 1, 1)
-		end
+		end]]
 		camera.Bloom.Enabled = Menu["Visuals"]["Bloom"]["Custom Bloom"]["Toggle"]["Enabled"]
 		if Menu["Visuals"]["Bloom"]["Custom Bloom"]["Toggle"]["Enabled"] then
 			camera.Bloom.Intensity = Menu["Visuals"]["Bloom"]["Bloom Intensity"]["Value"] / 100
@@ -10383,7 +10383,7 @@ do --ANCHOR Ragebot
 				if idealFreestand then
 					delayedcf = newCframe(delayedcf.p, (delayedcf.p + idealFreestand)) -- freestand the opposite of the most dangerous vector
 
-					--[[if Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] ~= "Off" then
+					if Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] ~= "Off" then
 						realangle = realangle + 180
 						if Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] == "Default" then
 							realangle = realangle + math.random(-45, 45)
@@ -10406,12 +10406,12 @@ do --ANCHOR Ragebot
 								ragebot.lby = tick()
 							end
 						end
-					end]]
+					end
 				end
 			end
 
 			realangle = toDeg * mathModule.normalizeAngle(realangle * toRad)
-			--[[if localPlayer.Character:FindFirstChild("HeadHB") and localPlayer.Character:FindFirstChild("FakeHead") then
+			if localPlayer.Character:FindFirstChild("HeadHB") and localPlayer.Character:FindFirstChild("FakeHead") then
 				if not localPlayer.Character.HeadHB:FindFirstChild("Weld") and not localPlayer.Character.FakeHead:FindFirstChild("Weld") and Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] ~= "Off" and targetpos then
 					if tick() - ragebot.lby < 63/64 then
 						localPlayer.Character.LowerTorso.Root.C0 = CFrame.new(0, -0.649999976, 0) * CFrame.Angles(0, pi - (toRad * realangle), 0)
@@ -10421,7 +10421,7 @@ do --ANCHOR Ragebot
 				else
 					localPlayer.Character.LowerTorso.Root.C0 = CFrame.new(0, -0.649999976, 0) * CFrame.Angles(0, 0, 0)
 				end
-			end]]
+			end
 			
 			
 			if Menu["Rage"]["Anti Aim"]["Yaw Jitter"]["Value"] ~= "Off" then
