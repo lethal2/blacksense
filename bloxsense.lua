@@ -11684,11 +11684,6 @@ do --ANCHOR Movement
 	function movement.step(delta)
 		local localCharacter = localPlayer.Character
 		local flightmode = (Menu["Misc"]["Tweaks"]["No Clip"]["Toggle"]["Enabled"] and Menu["Misc"]["Tweaks"]["No Clip"]["Bind"]["Active"]) or (Menu["Misc"]["Movement"]["Fly"]["Toggle"]["Enabled"] and Menu["Misc"]["Movement"]["Fly"]["Bind"]["Active"])
-		if Menu["Misc"]["Tweaks"]["Custom Gravity"]["Toggle"]["Enabled"] then
-			workspace.Gravity = Menu["Misc"]["Tweaks"]["Gravity Level"]["Value"]
-		else
-			workspace.Gravity = 80
-		end
 		if localCharacter then
 			local humanoid = localCharacter:FindFirstChild("Humanoid")
 			local humanoidRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
