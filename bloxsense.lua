@@ -1,4 +1,3 @@
-
 --The start of something new....
 --13 November 2021
 --Credits :
@@ -24,6 +23,7 @@
 	]]
 
 --ANCHOR Defining start tick
+print("loading...")
 local cheatLoadingStartTick = os.clock()
 
 local tick = tick
