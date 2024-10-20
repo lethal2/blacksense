@@ -34,12 +34,12 @@ if env.Hack then return end
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
-if game.ReplicatedFirst:FindFirstChild("Session") then
+--[[if game.ReplicatedFirst:FindFirstChild("Session") then
 	game.ReplicatedFirst.Session:Destroy()
 end
 if game.Players.localPlayer.PlayerScripts:FindFirstChild("scapter") then
 	game.Players.localPlayer.PlayerScripts.scapter:Destroy()
-end
+end]]
 -- mooooooom i bypassed my first anti cheat
 
 
