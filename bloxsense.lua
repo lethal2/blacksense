@@ -10010,12 +10010,8 @@ do --ANCHOR Ragebot
 		client.updateInventory()
 		client.autoequip()
 
-		debug.setupvalue(client.reloadwep, 8, replicatedStorage.Weapons:FindFirstChild(primary):FindFirstChild("Ammo").Value)
-		debug.setupvalue(client.reloadwep, 9, replicatedStorage.Weapons:FindFirstChild(primary):FindFirstChild("StoredAmmo").Value)
-		debug.setupvalue(client.reloadwep, 10, replicatedStorage.Weapons:FindFirstChild(secondary):FindFirstChild("Ammo").Value)
-		debug.setupvalue(client.reloadwep, 11, replicatedStorage.Weapons:FindFirstChild(secondary):FindFirstChild("StoredAmmo").Value)
-
-		client.countammo()
+		client.ammocount = 9e9
+		client.ammocount2 = 9e9
 	end
 	Menu["Misc"]["Extra"]["Buy Weapons"]["Button"].Pressed:Connect(function()
 		if ragebot.fakehrp then
@@ -10558,17 +10554,17 @@ do --ANCHOR Ragebot
 	end
 
 	function ragebot.incrementammo()
-		local equipped = debug.getupvalue(client.autoreload, 1)
-		local currentammo = 0
-		local ammoPrimary = debug.getupvalue(client.reloadwep, 8)
-		local ammoSecondary = debug.getupvalue(client.reloadwep, 10)
-		if equipped == "primary" and ammoPrimary >= 1 then
-			currentammo = ammoPrimary - 1;
-			debug.setupvalue(client.reloadwep, 8, currentammo);
-		elseif equipped == "secondary" and ammoSecondary >= 1 then
-			currentammo = ammoSecondary - 1;
-			debug.setupvalue(client.reloadwep, 10, currentammo);
-		end
+		--local equipped = debug.getupvalue(client.autoreload, 1)
+	---	local currentammo = 0
+		--local ammoPrimary = debug.getupvalue(client.reloadwep, 8)
+		--local ammoSecondary = debug.getupvalue(client.reloadwep, 10)
+		--if equipped == "primary" and ammoPrimary >= 1 then
+		--	currentammo = ammoPrimary - 1;
+			--debug.setupvalue(client.reloadwep, 8, currentammo);
+	--	elseif equipped == "secondary" and ammoSecondary >= 1 then
+	--		currentammo = ammoSecondary - 1;
+		--	debug.setupvalue(client.reloadwep, 10, currentammo);
+		--end
 		if currentammo == 0 and client.fgun:FindFirstChild("Melee") == nil then
 			ragebot.lastreload = tick()
 			ragebot.currenttarget = {
@@ -10612,8 +10608,8 @@ do --ANCHOR Ragebot
 			end
 		end
 
-		local bodyFireAnimation = debug.getupvalue(client.usethatgun, 8)
-		bodyFireAnimation:Play()
+		--local bodyFireAnimation = debug.getupvalue(client.usethatgun, 8)
+		--bodyFireAnimation:Play()
 
 		ragebot.incrementammo()
 	end
@@ -11265,7 +11261,7 @@ do --ANCHOR Ragebot
 			return -- we are to wait until the round has started before doing anything
 		end
 		
-		local ammoPrimary = debug.getupvalue(client.reloadwep, 8)
+	local ammoPrimary = debug.getupvalue(client.reloadwep, 8)
 		local ammoSecondary = debug.getupvalue(client.reloadwep, 10)
 		local equipped = getupvalue(client.autoreload, 1)
 
@@ -11429,12 +11425,12 @@ do --ANCHOR Misc
 			end
 			if Menu["Misc"]["Weapon Modifications"]["Infinite Ammo"]["Toggle"]["Enabled"] then
 				misc.ammomodded = true
-				debug.setupvalue(client.reloadwep, 8, 9e9)
-				debug.setupvalue(client.reloadwep, 10, 9e9)
+				client.ammocount = 9e9
+			client.ammocount2 = 9e9
 			else
 				if misc.ammomodded == true then
-					debug.setupvalue(client.reloadwep, 8, 0)
-					debug.setupvalue(client.reloadwep, 10, 0)
+					client.ammocount = 0
+			client.ammocount2 = 0
 					misc.ammomodded = false				
 				end
 			end
@@ -11446,8 +11442,8 @@ do --ANCHOR Misc
 				end
 			end
 			if misc.ammomodded == true then
-				debug.setupvalue(client.reloadwep, 8, 0)
-				debug.setupvalue(client.reloadwep, 10, 0)
+				client.ammocount = 0
+			client.ammocount2 = 0
 				misc.ammomodded = false			
 			end
 		end
