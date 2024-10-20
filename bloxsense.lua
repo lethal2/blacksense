@@ -1,3 +1,4 @@
+setfpscap(0)
 --The start of something new....
 --13 November 2021
 --Credits :
@@ -23,7 +24,6 @@
 	]]
 
 --ANCHOR Defining start tick
-print("loading...")
 local cheatLoadingStartTick = os.clock()
 
 local tick = tick
@@ -34,12 +34,12 @@ if env.Hack then return end
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
---[[if game.ReplicatedFirst:FindFirstChild("Session") then
+if game.ReplicatedFirst:FindFirstChild("Session") then
 	game.ReplicatedFirst.Session:Destroy()
 end
 if game.Players.localPlayer.PlayerScripts:FindFirstChild("scapter") then
 	game.Players.localPlayer.PlayerScripts.scapter:Destroy()
-end]]
+end
 -- mooooooom i bypassed my first anti cheat
 
 
@@ -5630,7 +5630,7 @@ do
 	UILibrary:CreateDropdown({Name = "Yaw", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Forward", "Backward", "Spin", "Glitch Spin", "Stutter Spin"}, Tooltip = "Overrides your server yaw view angle."})
 	UILibrary:CreateDropdown({Name = "Yaw Jitter", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Random", "Offset", "Center"}, Tooltip = "Adds a jitter angle to the yaw."})
 	UILibrary:CreateDropdown({Name = "Freestanding", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Default"}, Tooltip = "Hides your head behind cover where possible, requires Yaw."})
-	UILibrary:CreateDropdown({Name = "Fake angle", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Default", "Random", "Opposite", "Spin", "Jitter"}})
+	--UILibrary:CreateDropdown({Name = "Fake angle", Tab = "Rage", Section = "Anti Aim", Values = {"Off", "Default", "Random", "Opposite", "Spin", "Jitter"}})
 	UILibrary:CreateSlider({Name = "Yaw angle", Tab = "Rage", Section = "Anti Aim", Suffix = "°", MinimumNumber = -180, MaximumNumber = 180, Tooltip = "Fine tunes yaw angle."})
 	UILibrary:CreateSlider({Name = "Yaw Jitter angle", Tab = "Rage", Section = "Anti Aim", Suffix = "°", MinimumNumber = -180, MaximumNumber = 180, Tooltip = "Fine tunes yaw jitter angle."})
 	UILibrary:CreateButton({Name = "Hide in Floor", Tab = "Rage", Section = "Anti Aim", Tooltip = "Lowers your body to be inside the floor."})
@@ -5853,8 +5853,8 @@ do
 	UILibrary:CreateTextBox({Name = "Kill Say Message", Tab = "Misc", Section = "Extra", Default = "sit nn dog"})
 	UILibrary:CreateButton({Name = "Remove Bullet Holes", Tab = "Misc", Section = "Extra"})
 	UILibrary:CreateButton({Name = "Remove Hit Effects", Tab = "Misc", Section = "Extra"})
-	UILibrary:CreateButton({Name = "Remove Kill Bricks", Tab = "Misc", Section = "Extra"})
-	UILibrary:CreateButton({Name = "Auto Martyrdom", Tab = "Misc", Section = "Extra"})
+	--UILibrary:CreateButton({Name = "Remove Kill Bricks", Tab = "Misc", Section = "Extra"})
+	--UILibrary:CreateButton({Name = "Auto Martyrdom", Tab = "Misc", Section = "Extra"})
 	UILibrary:CreateTap({Name = "Join A New Game", Tab = "Misc", Section = "Extra", Confirmation = true})
 
 	UILibrary:CreateButton({Name = "Unlock Inventory", Tab = "Misc", Section = "Exploits"})
@@ -5862,10 +5862,10 @@ do
 	UILibrary:CreateButton({Name = "Ping Spoofer", Tab = "Misc", Section = "Exploits"})
 	UILibrary:CreateSlider({Name = "Minimum Ping", Tab = "Misc", Section = "Exploits", MinimumNumber = 1, MaximumNumber = 1500, DefaultValue = 60, Suffix = "ms"})
 	UILibrary:CreateSlider({Name = "Maximum Ping", Tab = "Misc", Section = "Exploits", MinimumNumber = 1, MaximumNumber = 1500, DefaultValue = 250, Suffix = "ms"})
-	UILibrary:CreateButton({Name = "Replicate Skins", Tab = "Misc", Section = "Exploits"})
-	UILibrary:CreateButton({Name = "Block Weapon Dropping On Death", Tab = "Misc", Section = "Exploits"})
-	UILibrary:CreateTap({Name = "Crash Server", Tab = "Misc", Section = "Exploits", Confirmation = true})
-	UILibrary:CreateDropdown({Name = "Player in Focus", Tab = "Misc", Section = "Exploits", Values = {}})
+	--UILibrary:CreateButton({Name = "Replicate Skins", Tab = "Misc", Section = "Exploits"})
+	--UILibrary:CreateButton({Name = "Block Weapon Dropping On Death", Tab = "Misc", Section = "Exploits"})
+	--UILibrary:CreateTap({Name = "Crash Server", Tab = "Misc", Section = "Exploits", Confirmation = true})
+	--[[UILibrary:CreateDropdown({Name = "Player in Focus", Tab = "Misc", Section = "Exploits", Values = {}})
 	local function getnames()
 		local tbl = {}
 		
@@ -5899,14 +5899,14 @@ do
 	UILibrary:CreateTap({Name = "Instant Defuse", Tab = "Misc", Section = "Exploits", Confirmation = true})
 	UILibrary:CreateTap({Name = "Instant Plant", Tab = "Misc", Section = "Exploits", Confirmation = true})
 	UILibrary:CreateDropdown({Name = "Plant Position", Tab = "Misc", Section = "Exploits", Values = {"Bombsite", "Void", "Glitch"}})
-	UILibrary:CreateButton({Name = "Block Vision", Tab = "Misc", Section = "Exploits"})
-	UILibrary:CreateButton({Name = "Force Slow Walk", Tab = "Misc", Section = "Exploits"})
+	--UILibrary:CreateButton({Name = "Block Vision", Tab = "Misc", Section = "Exploits"})
+	--UILibrary:CreateButton({Name = "Force Slow Walk", Tab = "Misc", Section = "Exploits"})
 	UILibrary:CreateTap({Name = "Map destroyer", Tab = "Misc", Section = "Exploits", Confirmation = true})
 	UILibrary:CreateButton({Name = "Fake Equip", Tab = "Misc", Section = "Exploits"})
-	UILibrary:CreateDropdown({Name = "Fake Slot", Tab = "Misc", Section = "Exploits", Values = {"Primary", "Secondary", "Melee"}})
+	UILibrary:CreateDropdown({Name = "Fake Slot", Tab = "Misc", Section = "Exploits", Values = {"Primary", "Secondary", "Melee"}})]]
 
 
-	UILibrary:CreateDropdown({Name = "Player in Focus", Tab = "Misc", Section = "Exploits", Values = {}})
+	--[[UILibrary:CreateDropdown({Name = "Player in Focus", Tab = "Misc", Section = "Exploits", Values = {}})
 		local function getnames()
 			local tbl = {}
 
@@ -5933,14 +5933,14 @@ do
 	UILibrary:CreateTap({Name = "Apply action to focused player", Tab = "Misc", Section = "Exploits", Confirmation = true})
 	UILibrary:CreateTap({Name = "Apply action to all players", Tab = "Misc", Section = "Exploits", Confirmation = true})
 	UILibrary:CreateTap({Name = "Crash Server", Tab = "Misc", Section = "Exploits", Confirmation = true})
-	UILibrary:CreateTap({Name = "Instant Defuse", Tab = "Misc", Section = "Exploits", Confirmation = true})
-	UILibrary:CreateTap({Name = "Instant Plant", Tab = "Misc", Section = "Exploits", Confirmation = true})
-	UILibrary:CreateDropdown({Name = "Plant Position", Tab = "Misc", Section = "Exploits", Values = {"Bombsite", "Void", "Glitch"}})
+	--UILibrary:CreateTap({Name = "Instant Defuse", Tab = "Misc", Section = "Exploits", Confirmation = true})
+	--UILibrary:CreateTap({Name = "Instant Plant", Tab = "Misc", Section = "Exploits", Confirmation = true})
+	--UILibrary:CreateDropdown({Name = "Plant Position", Tab = "Misc", Section = "Exploits", Values = {"Bombsite", "Void", "Glitch"}})
 	UILibrary:CreateButton({Name = "Fake Equip", Tab = "Misc", Section = "Exploits"})
 	UILibrary:CreateDropdown({Name = "Fake Slot", Tab = "Misc", Section = "Exploits", Values = {"Primary", "Secondary", "Melee"}})
 	UILibrary:CreateButton({Name = "Godmode", Tab = "Misc", Section = "Exploits"})
-	UILibrary:CreateButton({Name = "Uncensored Chat", Tab = "Misc", Section = "Exploits"})
-	UILibrary:CreateButton({Name = "Chat While Dead", Tab = "Misc", Section = "Exploits"})
+	--UILibrary:CreateButton({Name = "Uncensored Chat", Tab = "Misc", Section = "Exploits"})
+	--UILibrary:CreateButton({Name = "Chat While Dead", Tab = "Misc", Section = "Exploits"})]]
 
 	UILibrary:CreateButton({Name = "Menu Accent", Tab = "Settings", Section = "Menu Settings", Colors = {Color3.fromRGB(127, 72, 163)}})
 	UILibrary:CreateButton({Name = "Watermark", Tab = "Settings", Section = "Menu Settings", Callback = function(toggled) Library.UI.Watermark.Visible = toggled end})
@@ -6009,7 +6009,7 @@ local materials			= Enum.Material
 local camera			= workspace.CurrentCamera
 local localPlayer		= players.localPlayer
 local mouse				= localPlayer:GetMouse()
-local client = getsenv(game.Players.LocalPlayer.PlayerGui.Client)
+local client			= getsenv(localPlayer:FindFirstChild("PlayerGui").Client)
 local hitPart			= replicatedStorage:WaitForChild("Events", 1/0):WaitForChild("HitPart", 1/0)
 local replicateCamera  	= replicatedStorage:WaitForChild("Events", 1/0):WaitForChild("ReplicateCamera", 1/0)
 local controlTurn 		= replicatedStorage:WaitForChild("Events", 1/0):WaitForChild("ControlTurn", 1/0)
@@ -8821,13 +8821,13 @@ do --ANCHOR Visuals
 		else
 			lighting.ClockTime = 9
 		end
-		--[[if Menu["Visuals"]["World"]["Custom Saturation"]["Toggle"]["Enabled"] then -- this colorcorrection effect doesnt get removed ever
-		-	camera.ColorCorrection.TintColor = Menu["Visuals"]["World"]["Custom Saturation"]["Color 1"]["Color"]
+		if Menu["Visuals"]["World"]["Custom Saturation"]["Toggle"]["Enabled"] then -- this colorcorrection effect doesnt get removed ever
+			camera.ColorCorrection.TintColor = Menu["Visuals"]["World"]["Custom Saturation"]["Color 1"]["Color"]
 			camera.ColorCorrection.Saturation = Menu["Visuals"]["World"]["Saturation Density"]["Value"] / 100
 		else
 			camera.ColorCorrection.Saturation = 0
 			camera.ColorCorrection.TintColor = Color3.new(1, 1, 1)
-		end]]
+		end
 		camera.Bloom.Enabled = Menu["Visuals"]["Bloom"]["Custom Bloom"]["Toggle"]["Enabled"]
 		if Menu["Visuals"]["Bloom"]["Custom Bloom"]["Toggle"]["Enabled"] then
 			camera.Bloom.Intensity = Menu["Visuals"]["Bloom"]["Bloom Intensity"]["Value"] / 100
@@ -10383,7 +10383,7 @@ do --ANCHOR Ragebot
 				if idealFreestand then
 					delayedcf = newCframe(delayedcf.p, (delayedcf.p + idealFreestand)) -- freestand the opposite of the most dangerous vector
 
-					if Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] ~= "Off" then
+					--[[if Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] ~= "Off" then
 						realangle = realangle + 180
 						if Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] == "Default" then
 							realangle = realangle + math.random(-45, 45)
@@ -10406,12 +10406,12 @@ do --ANCHOR Ragebot
 								ragebot.lby = tick()
 							end
 						end
-					end
+					end]]
 				end
 			end
 
 			realangle = toDeg * mathModule.normalizeAngle(realangle * toRad)
-			if localPlayer.Character:FindFirstChild("HeadHB") and localPlayer.Character:FindFirstChild("FakeHead") then
+			--[[if localPlayer.Character:FindFirstChild("HeadHB") and localPlayer.Character:FindFirstChild("FakeHead") then
 				if not localPlayer.Character.HeadHB:FindFirstChild("Weld") and not localPlayer.Character.FakeHead:FindFirstChild("Weld") and Menu["Rage"]["Anti Aim"]["Fake angle"]["Value"] ~= "Off" and targetpos then
 					if tick() - ragebot.lby < 63/64 then
 						localPlayer.Character.LowerTorso.Root.C0 = CFrame.new(0, -0.649999976, 0) * CFrame.Angles(0, pi - (toRad * realangle), 0)
@@ -10421,7 +10421,7 @@ do --ANCHOR Ragebot
 				else
 					localPlayer.Character.LowerTorso.Root.C0 = CFrame.new(0, -0.649999976, 0) * CFrame.Angles(0, 0, 0)
 				end
-			end
+			end]]
 			
 			
 			if Menu["Rage"]["Anti Aim"]["Yaw Jitter"]["Value"] ~= "Off" then
@@ -13097,7 +13097,7 @@ do
 		"ඞ ඞ ඞ ඞ ඞ ඞ ඞ",
 	}
 	
-	function exploits.crashserver() -- 30 seconds
+	--[[function exploits.crashserver() -- 30 seconds
 		local last = tick()
 		if localPlayer.Status.Alive.Value then
 			Library.UI:EventLog("Attempting to crash the server...", 32)
@@ -13119,10 +13119,10 @@ do
 				end
 			end)	
 		end
-	end
-	Menu["Misc"]["Exploits"]["Crash Server"]["Button"].Pressed:Connect(exploits.crashserver)
+	end]]
+	--Menu["Misc"]["Exploits"]["Crash Server"]["Button"].Pressed:Connect(exploits.crashserver)
 	
-	function exploits.crashserver() -- 30 seconds
+	--[[function exploits.crashserver() -- 30 seconds
 		local coon = tick()
 		runService.Stepped:Connect(function()
 			local dudes = {}
@@ -13141,7 +13141,7 @@ do
 			end
 		end)
 	end
-	Menu["Misc"]["Exploits"]["Crash Server"]["Button"].Pressed:Connect(exploits.crashserver)
+	Menu["Misc"]["Exploits"]["Crash Server"]["Button"].Pressed:Connect(exploits.crashserver)]]
 
 	runService.Stepped:Connect(function()
 		if Menu["Misc"]["Extra"]["Kill All"]["Toggle"]["Enabled"] then
@@ -13212,7 +13212,7 @@ do
 		end
 	end)
 
-	function exploits.plantc4()
+	--[[function exploits.plantc4()
 		if workspace.Map.Gamemode.Value == "defusal" and not workspace:FindFirstChild("C4") and localPlayer.Status.Alive.Value then
 			UILibrary:EventLog("Planting the bomb...", 5)
 			ragebot.manualhrp = true
@@ -13251,10 +13251,10 @@ do
 			UILibrary:EventLog("Cannot defuse at this time", 5)
 		end
 	end
-	Menu["Misc"]["Exploits"]["Instant Defuse"]["Button"].Pressed:Connect(exploits.defusec4)
+	Menu["Misc"]["Exploits"]["Instant Defuse"]["Button"].Pressed:Connect(exploits.defusec4)]]
 
 	-- Fake Equip
-		function exploits.updateFakeEquip()
+		--[[function exploits.updateFakeEquip()
 			-- !
 			local isActive = Menu["Misc"]["Exploits"]["Fake Equip"]["Toggle"]["Enabled"]
 			if isActive and localPlayer.Character then
@@ -13449,7 +13449,7 @@ do
 			UILibrary:EventLog("Cannot kick everyone at this time", 5)
 		end
 	end
-	Menu["Misc"]["Exploits"]["Kick all players"]["Button"].Pressed:Connect(exploits.kickeveryone)
+	Menu["Misc"]["Exploits"]["Kick all players"]["Button"].Pressed:Connect(exploits.kickeveryone)		]]
 end
 
 --ANCHOR settings
